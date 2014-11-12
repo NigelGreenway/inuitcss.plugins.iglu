@@ -1,0 +1,443 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Iglu Demo :: InuitCSS</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <main class="wrapper">
+
+        <div class="layout">
+
+            <div class="layout__item">
+                <h1>Inuit.Iglu</h1>
+                <!-- What is it & what is it for? -->
+                <p class="center">
+                    <button
+                        class="btn"
+                        onclick="welcome();"
+                    >
+                        WHAT? Another Modal?
+                    </button>
+                </p>
+                <p class="center">
+                    <button
+                        class="btn"
+                        onclick="howItWorks();"
+                    >
+                        How does it work?
+                    </button>
+                </p>
+            </div><!--
+
+            --><div class="layout__item">
+                <h2>Different Sized Iglu's</h2>
+
+                <p>
+                    <button
+                        class="btn btn--third"
+                        onclick="sizeExample('small');"
+                    >
+                        size: 'small'
+                    </button>
+                    <button
+                        class="btn btn--third"
+                        onclick="sizeExample('medium');"
+                    >
+                        size: 'medium'
+                    </button>
+                    <button
+                        class="btn btn--third"
+                        onclick="sizeExample('large');"
+                    >
+                        size: 'large'
+                    </button>
+                </p>
+            </div><!--
+
+            --><div class="layout__item">
+                <h2>Iglu extras</h2>
+
+                <p>
+                    <button
+                        class="btn btn--third"
+                        onclick="replaceContent();"
+                    >
+                        Replace Content
+                    </button>
+                    <button
+                        class="btn btn--third"
+                        onclick="buttonsAlignRight();"
+                    >
+                        Aligning the buttons
+                    </button>
+                    <button
+                        class="btn btn--third"
+                        onclick="Iglu.notify('Notification Dialog', 'This is an notification box! And all you need is:<pre><code>Iglu.notify(\'Title\', \'content\');</code></pre>');"
+                    >
+                        Alert Box
+                    </button>
+                </p>
+                <p>
+                    <button
+                        class="btn btn--third"
+                        onclick="formExample()"
+                    >
+                        Form Example
+                    </button>
+                    <button
+                        class="btn btn--third"
+                        onclick="allButtonsExample();"
+                    >
+                        All Buttons
+                    </button>
+                </p>
+            </div>
+
+        </div>
+    </main>
+    <div id="iglu" class="iglu"></div>
+
+    <script src="iglu.js"></script>
+    <script>
+        function welcome () {
+            Iglu.generate(
+                'InuitJS Iglu',
+                '<p>Iglu is a modal box built specifically for <a href="http://inuitcss.com" target="_new">InuitCSS</a></p>' +
+                '<p>It has dependencies on the InuitCSS button object, and nothing else.</p>' +
+                '<p>The Javascript is pure vanilla flavour with no extra library needed, however; there is a hook with a vanilla Javascript library, <a href="http://craig.is/killing/mice" target="_new">Mousetrap.js</a>, which is optional and will only be called if the library is loaded</p>' +
+                '<p><blockquote><i><a href="http://craig.is/killing/mice" target="_new">Mousetrap.js</a>: This will be installed if you install via Bower.</i></blockquote></p>',
+                {
+                    buttons: [
+                        {
+                            style:      'primary',
+                            content:    'Ok',
+                            dismiss:    true,
+                        }
+                    ],
+                    size: 'small',
+                }
+            );
+        };
+
+        function howItWorks () {
+            Iglu.generate(
+                'How does it work?',
+                '<p>It works by adding: <xmp><div class="iglu" id="iglu"></div></xmp> and <xmp><script="/path/to/Iglu.js"/></xmp></p>' +
+                '<br>' +
+                '<blockquote><i><strong>if using the \'_objects.layout\' module, ensure this lives outside of the \'layout__item\'. </strong></i></blockquote>' +
+                '<br>' +
+                '<p>' +
+                'Then, for a simple modal, you add the following code to generate the modal:\n' +
+                '<pre>' +
+                'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
+                '    buttons: [\n' +
+                '        {\n' +
+                '            style: \'default\',\n' +
+                '            content: \'Got it!\',\n' +
+                '            dismiss: true,\n' +
+                '        }\n' +
+                '    ],\n' +
+                '    size: \'small\'\n' +
+                '});' +
+                '</pre>' +
+                '</p>',
+                {
+                    buttons: [
+                        {
+                            style: 'default',
+                            content: 'Got it!',
+                            dismiss: true,
+                        }
+                    ],
+                    size: 'small'
+                }
+            );
+        };
+
+        function sizeExample (igluSize) {
+            Iglu.generate(
+                'How does it work?',
+                '<p>This is a ' + igluSize + ' Iglu with the following <code>options</code> object:</p>' +
+                '<pre>' +
+                'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
+                '    buttons: [\n' +
+                '        {\n' +
+                '            style: \'default\',\n' +
+                '            content: \'Dismiss\',\n' +
+                '            dismiss: true,\n' +
+                '        }\n' +
+                '    ],\n' +
+                '    size: \'' + igluSize + '\'\n' +
+                '});' +
+                '</pre>' +
+                '</p>',
+                {
+                    buttons: [
+                        {
+                            style: 'default',
+                            content: 'Got it!',
+                            dismiss: true,
+                        }
+                    ],
+                    size: igluSize
+                }
+            );
+        };
+
+        function replaceContent () {
+            Iglu.generate(
+                'Replacing content',
+                '<p>Easy enough...</p>' +
+                '<p>' +
+                '<pre>' +
+                'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
+                '    buttons: [\n' +
+                '        {\n' +
+                '            style: \'default\',\n' +
+                '            content: \'Dismiss\',\n' +
+                '            dismiss: true,\n' +
+                '        },\n' +
+                '        {\n' +
+                '            style: \'primary\',\n' +
+                '            content: \'Replace Content\',\n' +
+                '            alignRight: true,\n' +
+                '            attr: [\n' +
+                '                {\n' +
+                '                    name: \'onclick\',\n' +
+                '                    value: \'Iglu.replaceContent(\'This is your new content...\');\'\n' +
+                '                }\n' +
+                '            ]\n' +
+                '         },\n' +
+                '    ],\n' +
+                '    size: \'medium\'\n' +
+                '});\n' +
+                '</pre>' +
+                '</p>',
+                {
+                    buttons: [
+                        {
+                            style:   'default',
+                            content: 'Got it!',
+                            dismiss: true,
+                        },
+                        {
+                            style:     'primary',
+                            content:   'Replace Content',
+                            alignRight: true,
+                            removeOnCallback: true,
+                            attr: [
+                                {
+                                    name: 'onclick',
+                                    value: 'Iglu.replaceContent(\'<p>This is your new content...</p>\', event);'
+                                }
+                            ]
+                        }
+                    ],
+                    size: 'medium'
+                }
+            );
+        };
+
+        function buttonsAlignRight () {
+            Iglu.generate(
+                'Aligning the buttons',
+                '<p>Iglu is a modal box built specifically for <a href="http://inuitcss.com" target="_new">InuitCSS</a></p>' +
+                '<p>It has dependencies on the InuitCSS button object, and nothing else.</p>' +
+                '<p>' +
+                '<pre>' +
+                'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
+                '    buttons: [\n' +
+                '        {\n' +
+                '            style: \'default\',\n' +
+                '            content: \'Close\',\n' +
+                '            dismiss: true\n' +
+                '        },\n' +
+                '        {\n' +
+                '            style: \'primary\',\n' +
+                '            content: \'OK\',\n' +
+                '            alignRight: true\n' +
+                '        },\n' +
+                '        {\n' +
+                '            style: \'warning\',\n' +
+                '            content: \'Another Button\',\n' +
+                '            alignRight: true\n' +
+                '        }\n' +
+                '    ],\n' +
+                '    size: \'medium\'\n' +
+                '});' +
+                '</pre>' +
+                '</p>',
+                {
+                    buttons: [
+                        {
+                            style:   'default',
+                            content: 'Close',
+                            dismiss: true,
+                        },
+                        {
+                            style:      'primary',
+                            content:    'Ok',
+                            alignRight: true,
+                        },
+                        {
+                            style:      'warning',
+                            content:    'Another Button',
+                            alignRight: true,
+                        }
+                    ],
+                    size: 'medium',
+                }
+            );
+        };
+
+        function formExample () {
+            Iglu.generate(
+                'Iglu With Form Example',
+                '<form action="submit.html" method="GET">' +
+                    '<input type="text" name="input[one]" placeholder="Your input One" tabindex="1" autofocus/>' +
+                    '<input type="text" name="input[two]" placeholder="Your input Two" tabindex="2"/>' +
+                '<form>',
+                {
+                    buttons: [
+                        {
+                            style:   'default',
+                            content: 'Close',
+                            dismiss: true,
+                            attr: [
+                                {
+                                    name: 'tabindex',
+                                    value: '4',
+                                }
+                            ]
+                        },
+                        {
+                            type: 'submit',
+                            style:      'submit',
+                            content:    'Submit Form',
+                            alignRight: true,
+                            removeOnCallback: true,
+                            attr: [
+                                {
+                                    name: 'onclick',
+                                    value: 'formSubmit(this);'
+                                },
+                                {
+                                    name: 'tabindex',
+                                    value: '3'
+                                }
+                            ]
+                        }
+                    ],
+                    size: 'small',
+                }
+            );
+        };
+
+        function allButtonsExample () {
+            Iglu.generate(
+                'Iglu With All Button Types',
+                '...',
+                {
+                    buttons: [
+                        {
+                            style:   'default',
+                            content: 'Default',
+                            dismiss: true,
+                        },
+                        {
+                            style:   'warning',
+                            content: 'Warning',
+                            dismiss: true,
+                        },
+                        {
+                            style:   'danger',
+                            content: 'Danger',
+                            dismiss: true,
+                        },
+                        {
+                            style:   'primary',
+                            content: 'Primary',
+                            dismiss: true,
+                        }
+                    ],
+                    size: 'medium',
+                }
+            );
+        };
+
+
+
+        // Demo helper functions:
+        function formSubmit (el) {
+            ajaxPost(
+                'demo-submit.html',
+                serialize(el.parentNode.parentNode.getElementsByTagName('form')[0], event),
+                function(response) {
+                    Iglu.replaceContent(response.responseText, event);
+                }
+            );
+        }
+
+        function ajaxPost(url, data, callback) {
+
+            if (window.XMLHttpRequest) {
+                var xmlHttp = new XMLHttpRequest();
+            } else {
+                var xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            };
+
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status >= 200 && xmlHttp.status <= 299) {
+                        if (typeof callback === 'function') {
+                            callback(xmlHttp);
+                        };
+                    };
+
+                    if (xmlHttp.status >= 500 && xmlHttp.status <= 599 ) {
+                        return xmlHttp;
+                    };
+                };
+            }
+
+            xmlHttp.open('POST', url, false);
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlHttp.setRequestHeader('X-Requested-With','XMLHttpRequest');
+            xmlHttp.send(data);
+
+            return xmlHttp;
+        };
+
+        function serialize (form, evt){
+            var evt    = evt || window.event;
+            evt.target = evt.target || evt.srcElement || null;
+            var field, query='';
+            if(typeof form == 'object' && form.nodeName == "FORM"){
+                for(i=form.elements.length-1; i>=0; i--){
+                    field = form.elements[i];
+                    if(field.name && field.type != 'file' && field.type != 'reset'){
+                        if(field.type == 'select-multiple'){
+                            for(j=form.elements[i].options.length-1; j>=0; j--){
+                                if(field.options[j].selected){
+                                    query += '&' + field.name + "=" + encodeURIComponent(field.options[j].value).replace(/%20/g,'+');
+                                }
+                            }
+                        }
+                        else{
+                            if((field.type != 'submit' && field.type != 'button') || evt.target == field){
+                                if((field.type != 'checkbox' && field.type != 'radio') || field.checked){
+                                    query += '&' + field.name + "=" + encodeURIComponent(field.value).replace(/%20/g,'+');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return query.substr(1);
+        }
+    </script>
+</body>
+</html>

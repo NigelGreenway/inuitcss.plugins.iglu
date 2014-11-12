@@ -1,0 +1,295 @@
+@charset "UTF-8";
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+/**
+ * A simple button object.
+ */
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
+ */
+.btn, .iglu > .iglu__hut > .iglu__hut--footer > .btn {
+  display: inline-block;
+  /* [1] */
+  vertical-align: middle;
+  /* [2] */
+  font: inherit;
+  /* [3] */
+  text-align: center;
+  /* [4] */
+  border: none;
+  /* [4] */
+  margin: 0;
+  /* [4] */
+  cursor: pointer;
+  /* [5] */
+  overflow: visible;
+  /* [6] */
+  padding: 11px 23px;
+  /* [7] */
+  background-color: #f8f7f7;
+  border: 1px solid #565d64; }
+  .btn, .iglu > .iglu__hut > .iglu__hut--footer > .btn, .btn:hover, .iglu > .iglu__hut > .iglu__hut--footer > .btn:hover, .btn:active, .iglu > .iglu__hut > .iglu__hut--footer > .btn:active, .btn:focus, .iglu > .iglu__hut > .iglu__hut--footer > .btn:focus {
+    text-decoration: none;
+    /* [4] */
+    color: #565d64; }
+
+/**
+ * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+ */
+.btn::-moz-focus-inner, .iglu > .iglu__hut > .iglu__hut--footer > .btn::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * Small buttons.
+ */
+.btn--small {
+  padding: 5px 11px;
+  /* [7] */ }
+
+/**
+ * Large buttons.
+ */
+.btn--large {
+  padding: 23px 47px;
+  /* [7] */ }
+
+/**
+ * Full-width buttons.
+ */
+.btn--full {
+  width: 100%;
+  /**
+   * Remove paddings so that widths and paddings don’t conflict.
+   */
+  padding-right: 0;
+  padding-left: 0; }
+
+/**
+ * Round-ended buttons.
+ *
+ * 1. Overly-large value to ensure the radius rounds the whole end of the
+ *    button.
+ */
+.btn--pill {
+  border-radius: 100px;
+  /* [1] */ }
+
+/*------------------------------------*\
+    #IGLU
+
+    DEPENDANCIES:
+    ^ _objects.buttons.scss
+\*------------------------------------*/
+/** Iglu globals **/
+/** Iglu **/
+/** Iglu hut **/
+/** Notification iglu hut **/
+/** Small iglu hut **/
+/** Medium iglu hut **/
+/** Large iglu hut **/
+/** Default button style */
+/** Primary button style */
+/** Warning button style */
+/** Danger button style */
+/*
+ * This will stop the background scrolling
+  * when an Iglu is active.
+ */
+body.active-iglu {
+  overflow: hidden; }
+
+.iglu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 100000;
+  background-color: rgba(50, 54, 57, 0.5);
+  overflow-x: hidden;
+  overflow-y: scroll; }
+  .iglu > .iglu__hut {
+    position: relative;
+    display: block;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    padding: 10px;
+    color: #323639;
+    background-color: #f8f7f7;
+    z-index: 100001;
+    border: 1px solid #626a72; }
+    .iglu > .iglu__hut[size="notification"] {
+      width: 350px;
+      min-height: 50px; }
+      .iglu > .iglu__hut[size="notification"] > .iglu__hut--body > .iglu__hut--content {
+        min-height: 50px; }
+    .iglu > .iglu__hut[size="small"] {
+      width: 50%;
+      min-height: 100px; }
+      .iglu > .iglu__hut[size="small"] > .iglu__hut--body > .iglu__hut--content {
+        min-height: 100px; }
+    .iglu > .iglu__hut[size="medium"] {
+      width: 70%;
+      min-height: 300px; }
+      .iglu > .iglu__hut[size="medium"] > .iglu__hut--body > .iglu__hut--content {
+        min-height: 300px; }
+    .iglu > .iglu__hut[size="large"] {
+      width: 90%;
+      min-height: 60%; }
+      .iglu > .iglu__hut[size="large"] > .iglu__hut--body > .iglu__hut--content {
+        min-height: 60%; }
+    .iglu > .iglu__hut > .iglu__hut--body {
+      position: relative;
+      padding: 1.2rem;
+      display: block;
+      z-index: 100002; }
+      .iglu > .iglu__hut > .iglu__hut--body > .close {
+        -webkit-opacity: 0.6;
+        -moz-opacity: 0.6;
+        opacity: 0.6;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+        filter: alpha(opacity=60);
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer; }
+        .iglu > .iglu__hut > .iglu__hut--body > .close:hover {
+          -webkit-opacity: 1;
+          -moz-opacity: 1;
+          opacity: 1;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+          filter: alpha(opacity=100); }
+      .iglu > .iglu__hut > .iglu__hut--body > h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1.6em;
+        text-align: left; }
+      .iglu > .iglu__hut > .iglu__hut--body > .iglu__hut--content {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        color: #555c62;
+        padding-top: 1em; }
+    .iglu > .iglu__hut > .iglu__hut--footer {
+      position: relative;
+      display: inline-block;
+      margin-top: 25px;
+      width: 100%; }
+      .iglu > .iglu__hut > .iglu__hut--footer > .btn {
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=100);
+        margin-right: 0.25rem;
+        background-color: whitesmoke;
+        color: #545c63;
+        border-color: #545c63; }
+        .iglu > .iglu__hut > .iglu__hut--footer > .btn:hover {
+          background-color: gainsboro;
+          color: #545c63;
+          border-color: #545c63; }
+        .iglu > .iglu__hut > .iglu__hut--footer > .btn--primary.btn {
+          background-color: #4a8ec2;
+          color: white;
+          border-color: #2a587c; }
+          .iglu > .iglu__hut > .iglu__hut--footer > .btn--primary.btn :hover {
+            background-color: white;
+            color: #4a8ec2;
+            border-color: #4a8ec2; }
+        .iglu > .iglu__hut > .iglu__hut--footer > .btn--warning.btn {
+          background-color: #ec9634;
+          color: white;
+          border-color: #aa6210; }
+          .iglu > .iglu__hut > .iglu__hut--footer > .btn--warning.btn:hover {
+            background-color: white;
+            color: #ec9634;
+            border-color: #ec9634; }
+        .iglu > .iglu__hut > .iglu__hut--footer > .btn--danger.btn {
+          background-color: #d94655;
+          color: white;
+          border-color: #99202c; }
+          .iglu > .iglu__hut > .iglu__hut--footer > .btn--danger.btn:hover {
+            background-color: white;
+            color: #d94655;
+            border-color: #d94655; }
+        .iglu > .iglu__hut > .iglu__hut--footer > .btn:hover {
+          -webkit-opacity: 0.8;
+          -moz-opacity: 0.8;
+          opacity: 0.8;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+          filter: alpha(opacity=80); }
+        .iglu > .iglu__hut > .iglu__hut--footer > .right.btn {
+          float: right; }
+
+html {
+  padding: 24px;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: #f8f7f7; }
+
+body {
+  height: 100%; }
+
+input:focus {
+  outline: 0; }
+
+a {
+  color: #4a8ec2;
+  text-decoration: none; }
+
+.strikethrough {
+  text-decoration: line-through; }
+
+h1, h2 {
+  text-align: center;
+  color: #616970; }
+
+.clearfix {
+  clear: both; }
+
+.center {
+  text-align: center; }
+
+.btn:hover, .iglu > .iglu__hut > .iglu__hut--footer > .btn:hover {
+  background-color: #4a8ec2;
+  color: #fff; }
+
+.btn.btn--third, .iglu > .iglu__hut > .iglu__hut--footer > .btn--third.btn {
+  width: 32.32%; }
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+  .wrapper > .layout {
+    padding: 24px; }
+
+input {
+  display: block;
+  width: 80%;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  margin-top: 5px;
+  margin-right: auto;
+  margin-bottom: 5px;
+  margin-left: auto; }

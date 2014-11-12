@@ -1,0 +1,34 @@
+{
+  "name": "inuitcss.plugins.iglu",
+  "version": "0.0.1a",
+  "homepage": "https://github.com/smilinmonki666/inuitcss.plugins.iglu",
+  "authors": [
+    "Nigel Greenway <nigel_greenway@me.com>"
+  ],
+  "description": "A modal plugin to be used within the InuitCSS OOCSS framework http://inuitcss.com",
+  "main": "_objects.buttons.scss",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "inuitcss",
+    "oocss",
+    "css",
+    "plugin",
+    "javascript",
+    "modal",
+    "lightbox"
+  ],
+  "license": "Apache",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mousetrap": "~1.4.6",
+    "inuit-buttons": "~0.4.1"
+  }
+}
