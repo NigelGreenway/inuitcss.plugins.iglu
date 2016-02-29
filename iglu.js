@@ -18,7 +18,7 @@
  * in vanilla Javascript, it allows you to not have to worry about any required
  * external dependencies.
  *
- * NOTE: Iglu has an optional dependancy of Mousetrap for otpional key binding.
+ * NOTE: Iglu has an optional dependancy of Mousetrap for optional key binding.
  * This will be installed if you installed IgluJS via Bower.
  * For more info visit: http://craig.is/killing/mice
  *
@@ -35,7 +35,7 @@
 
         this.Iglu.documentBody.className += ' ' + this.Iglu.documentBodyClassName;
 
-        this.Iglu.container.getElementsByClassName('close')[0].addEventListener('click', function() {
+        this.Iglu.container.getElementsByClassName('modal__close')[0].addEventListener('click', function() {
             destroy();
         });
         this.Iglu.container.addEventListener('click', function(event) {
@@ -69,21 +69,22 @@
     // Factory methods:
     var factory = {
         /*
-         * Create the Iglu and its content via the passed params
+         * Create the Iglu modal and its content via the passed params
          */
          iglu: function(title, content, size, alignRight) {
 
             title = title === null ? '' : '<h1>' + title + '</h1>';
 
-            // Todo: Should this be a series of doc.createElement()??
             Iglu.container.innerHTML=''+
-            '<div class="iglu__hut" size="' + size + '">' +
-                '<div class="iglu__hut--body">' +
-                    '<span class="close">&#10006;</span>' +
+            '<div class="modal__inner" size="' + size + '">' +
+                '<div class="modal__header">' +
+                    '<span class="modal__close"></span>' +
                     title +
-                    '<main class="iglu__hut--content">' + content + '</main>' +
                 '</div>' +
-                '<footer class="iglu__hut--footer"></footer>' +
+                '<div class="modal__body">' +
+                    '<main class="modal__content">' + content + '</main>' +
+                '</div>' +
+                '<div class="modal__footer"></div>' +
             '</div>';
 
             return Iglu;
@@ -94,7 +95,7 @@
          */
          button: function(button) {
 
-            footer = Iglu.container.getElementsByClassName('iglu__hut--footer')[0];
+            footer = Iglu.container.getElementsByClassName('modal__footer')[0];
 
             btn = document.createElement('button');
 
@@ -106,22 +107,7 @@
 
             alignRight = button.alignRight === false || typeof button.alignRight === 'undefined' ? '' : ' right';
 
-            switch (button.style) {
-                case 'default':
-                    btn.setAttribute('class', 'btn' + alignRight);
-                    break;
-                case 'submit':
-                case 'primary':
-                    btn.setAttribute('class', 'btn btn--primary' + alignRight);
-                    break;
-                case 'warning':
-                    btn.setAttribute('class', 'btn btn--warning' + alignRight);
-                    break;
-                case 'danger':
-                case 'cancel':
-                    btn.setAttribute('class', 'btn btn--danger' + alignRight);
-                    break;
-            }
+            btn.setAttribute('class', button.class + ' ' + alignRight);
 
             btn.textContent=button.content;
 
@@ -165,7 +151,7 @@
          */
          generate: function(title, content, options) {
             this.documentBody          = document.getElementsByTagName('body')[0];
-            this.documentBodyClassName = 'active-iglu';
+            this.documentBodyClassName = 'modal--active';
 
             if (typeof title !== 'string' && title !== null) {
                 throw new TypeError('The `title` must be a String type.');
@@ -179,7 +165,7 @@
                 throw new TypeError('`options` must be an Object type.');
             };
 
-            this.container = document.getElementById('iglu');
+            this.container = document.getElementById('modal');
             this.options   = options;
 
             factory.iglu(title, content, options.size, options.alignRight);
@@ -198,7 +184,7 @@
             var options = {
                 buttons: [
                 {
-                    style:      'primary',
+                    class:      'btn btn--primary',
                     content:    'Ok',
                     dismiss:    true,
                     alignRight: true
@@ -215,7 +201,7 @@
          * @param string content
          */
          replaceContent: function(content) {
-            this.container.getElementsByClassName('iglu__hut--content')[0].innerHTML=content;
+            this.container.getElementsByClassName('modal__content')[0].innerHTML=content;
         }
     };
 

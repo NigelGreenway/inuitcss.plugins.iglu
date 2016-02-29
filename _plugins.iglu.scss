@@ -1,248 +1,203 @@
 /*------------------------------------*\
     #IGLU
-
-    DEPENDANCIES:
-    ^ _objects.buttons.scss
 \*------------------------------------*/
 
 /** Iglu globals **/
-$iglu-border:     1px solid lighten(hsla(210, 7.2727%, 21.5686%, 1.0000), 20%)!default;
-$iglu-font-color: hsla(210, 7%, 21%, 1.0)!default;
+$iglu-zindex:     100000 !default;
+$iglu-spacing:    20px !default;
+$iglu-font-size:  13px !default;
+$iglu-font-color: hsla(0, 0 ,0, 1.0000) !default;
 
-/** Iglu **/
-$iglu-zindex:           100000!default;
-$iglu-background-color: hsla(210, 7%, 21%, 0.5)!default;
+/** Modal **/
+$iglu-background-color: hsla(210, 7%, 21%, 0.5) !default;
+$iglu-border:           1px solid lighten(hsla(210, 7.2727%, 21.5686%, 1.0000), 20%) !default;
 
-/** Iglu hut **/
-$iglu-hut-zindex:           $iglu-zindex+1!default;
-$iglu-hut-background-color: hsla(0, 5%, 97%, 1.0)!default;
+/** Modal Inner **/
+$iglu-inner-background-color: hsla(0, 5%, 97%, 1.0) !default;
 
-/** Notification iglu hut **/
-$iglu-hut-notification-width:  350px!default;
-$iglu-hut-notification-height: 50px!default;
+/** Modal Header **/
+$iglu-header-border: false !default;
 
-/** Small iglu hut **/
-$iglu-hut-small-width:  50%!default;
-$iglu-hut-small-height: 100px!default;
+/** Modal Close Button **/
+$close-icon:       "\2716" !default;
+$close-icon-color: hsla(0, 0, 62%, 1.0000) !default;
 
-/** Medium iglu hut **/
-$iglu-hut-medium-width:  70%!default;
-$iglu-hut-medium-height: 300px!default;
+/** Notification Modal **/
+$iglu-inner-notification-width:  350px !default;
+$iglu-inner-notification-height: 50px !default;
 
-/** Large iglu hut **/
-$iglu-hut-large-width:  90%!default;
-$iglu-hut-large-height: 60%!default;
+/** Small Modal **/
+$iglu-inner-small-width:  50% !default;
+$iglu-inner-small-height: 100px !default;
 
-/** Default button style */
-$iglu-hut-button-default-background:   #F5F5F5 !default;
-$iglu-hut-button-default-color:        hsl(210, 8%, 36%)!default;
-$iglu-hut-button-default-border-color: hsl(210, 8%, 36%)!default;
+/** Medium Modal **/
+$iglu-inner-medium-width:  70% !default;
+$iglu-inner-medium-height: 300px !default;
 
-/** Primary button style */
-$iglu-hut-button-primary-background:   #4a8ec2!default;
-$iglu-hut-button-primary-color:        #fff!default;
-$iglu-hut-button-primary-border-color: darken(#4a8ec2, 20%)!default;
-
-/** Warning button style */
-$iglu-hut-button-warning-background:   hsla(32, 82.8829%, 56.4706%, 1.0000);
-$iglu-hut-button-warning-color:        #fff!default;
-$iglu-hut-button-warning-border-color: darken(hsla(32, 82.8829%, 56.4706%, 1.0000), 20%)!default;
-
-/** Danger button style */
-$iglu-hut-button-danger-background:   hsla(354, 65.6899%, 56.1735%, 1.0000);
-$iglu-hut-button-danger-color:        #fff!default;
-$iglu-hut-button-danger-border-color: darken(hsla(354, 65.6899%, 56.1735%, 1.0000), 20%)!default;
-
-// @TODO:
-// needs its own namespace: _tools.mixin.opacity
-// Issue on namespace proposal: https://github.com/inuitcss/CONTRIBUTING/issues/15
-@mixin IgluOpacity($value){
-  -webkit-opacity: $value;
-  -moz-opacity: $value;
-  opacity: $value;
-  $IEValue: $value*100;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
-  filter: alpha(opacity=$IEValue);
-}
+/** Large Modal **/
+$iglu-inner-large-width:  90% !default;
+$iglu-inner-large-height: 60% !default;
 
 /*
  * This will stop the background scrolling
-  * when an Iglu is active.
+  * when an modal is active.
  */
-body.active-iglu{
+body.modal--active {
     overflow: hidden;
 }
 
-.iglu{
+.modal {
     position:         fixed;
+    display:          none;
     width:            100%;
     height:           100%;
     top:              0;
     left:             0;
-    display:          none;
     z-index:          $iglu-zindex;
-    background-color: $iglu-background-color;
     overflow-x:       hidden;
     overflow-y:       scroll;
+    background-color: $iglu-background-color;
 
-    > .iglu__hut{
+    .modal__inner {
         position:         relative;
         display:          block;
-        margin-top:       25px;
-        margin-right:     auto;
-        margin-bottom:    0px;
+        margin-top:       $iglu-spacing * 2;
         margin-left:      auto;
-        padding:          10px;
+        margin-bottom:    0;
+        margin-right:     auto;
+        padding:          ($iglu-spacing / 2) $iglu-spacing $iglu-spacing $iglu-spacing;
+        font-size:        $iglu-font-size;
         color:            $iglu-font-color;
-        background-color: $iglu-hut-background-color;
-        z-index:          $iglu-hut-zindex;
+        z-index:          $iglu-zindex + 1;
         border:           $iglu-border;
+        background-color: $iglu-inner-background-color;
 
-        &[size="notification"]{
-            width:      $iglu-hut-notification-width;
-            min-height: $iglu-hut-notification-height;
+        // Notification modal size
+        &[size="notification"] {
+            width:      $iglu-inner-notification-width;
+            min-height: $iglu-inner-notification-height;
 
-            > .iglu__hut--body{
-                > .iglu__hut--content{
-                    min-height:$iglu-hut-notification-height;
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-notification-height;
                 }
             }
         }
 
-        &[size="small"]{
-            width:  $iglu-hut-small-width;
-            min-height: $iglu-hut-small-height;
+        // Small modal size
+        &[size="small"] {
+            width:      $iglu-inner-small-width;
+            min-height: $iglu-inner-small-height;
 
-            > .iglu__hut--body{
-                > .iglu__hut--content{
-                    min-height:$iglu-hut-small-height;
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-small-height;
                 }
             }
         }
 
-        &[size="medium"]{
-            width: $iglu-hut-medium-width;
-            min-height:$iglu-hut-medium-height;
+        // Medium modal size
+        &[size="medium"] {
+            width:      $iglu-inner-medium-width;
+            min-height: $iglu-inner-medium-height;
 
-            > .iglu__hut--body{
-                > .iglu__hut--content{
-                    min-height:$iglu-hut-medium-height;
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-medium-height;
                 }
             }
         }
 
-        &[size="large"]{
-            width: $iglu-hut-large-width;
-            min-height:$iglu-hut-large-height;
+        // Large modal size
+        &[size="large"] {
+            width:      $iglu-inner-large-width;
+            min-height: $iglu-inner-large-height;
 
-            > .iglu__hut--body{
-                > .iglu__hut--content{
-                    min-height:$iglu-hut-large-height;
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-large-height;
                 }
             }
         }
 
-        > .iglu__hut--body{
-            position: relative;
-            padding:  1.2rem;
-            display:  block;
-            z-index: ($iglu-hut-zindex + 1);
+        .modal__header {
+            position:      relative;
+            display:       block;
+            margin-bottom: $iglu-spacing;
+            z-index:       $iglu-zindex + 2;
+            line-height:   $iglu-spacing * 2;
 
-            > .close{
-                @include IgluOpacity(0.6);
+            // Include a header border if set to 'true'
+            @if $iglu-header-border {
+                border-bottom: $iglu-border;
+            } @else {
+                border-bottom: 0;
+            }
 
-                position: absolute;
-                top:      0;
-                right:    0;
-                cursor:   pointer;
+            h1 {
+                margin-top:    0;
+                margin-bottom: $iglu-spacing / 2;
+                padding-right: $iglu-spacing * 1.5; // Pad heading so that it can't be overlapped by the close button
+                font-size:     $iglu-font-size + 5;
+                text-align:    left;
+            }
 
-                &:hover{
-                    @include IgluOpacity(1);
+            .modal__close {
+                height:      $iglu-spacing * 2;
+                width:       $iglu-spacing * 2;
+                position:    absolute;
+                top:         0;
+                right:       -$iglu-spacing / 2; // Move .model__close button to corner
+                cursor:      pointer;
+                color:       $close-icon-color;
+                font-size:   $iglu-font-size * 1.5;
+                line-height: $iglu-spacing * 2;
+                text-align:  center;
+
+                &:before {
+                    content: $close-icon;
                 }
-            }
 
-            > h1{
-                margin-top: 0;
-                margin-bottom: 0;
-                font-size: 1.6em;
-                text-align: left;
-            }
-
-            > .iglu__hut--content{
-                font-size:      0.8rem;
-                line-height:    1.2rem;
-                color:          lighten($iglu-font-color, 15%);
-                padding-top:    1em;
+                &:hover {
+                    &:before {
+                        color: darken($close-icon-color, 25%);
+                    }
+                }
             }
         }
 
-        > .iglu__hut--footer{
+        .modal__body {
+            position:       relative;
+            display:        block;
+            z-index:        $iglu-zindex + 2;
+            padding-bottom: $spacing-unit;
+
+            .modal__content {
+                font-size:   $iglu-font-size;
+                line-height: $iglu-spacing;
+                color:       $iglu-font-color;
+
+                p {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .modal__footer {
             position:   relative;
             display:    inline-block;
-            margin-top: 25px;
             width:      100%;
+            z-index:    $iglu-zindex + 2;
 
-
-            > .btn{
-                @extend .btn;
-                @include IgluOpacity(1);
-
-                margin-right:     0.25rem;
-                background-color: $iglu-hut-button-default-background;
-                color:            $iglu-hut-button-default-color;
-                border-color:     $iglu-hut-button-default-border-color;
-
-                &:hover{
-                    background-color: darken($iglu-hut-button-default-background, 10%);
-                    color:            $iglu-hut-button-default-color;
-                    border-color:     $iglu-hut-button-default-border-color;
+            .btn {
+                &.left {
+                    float: left;
                 }
 
-                &.btn--primary{
-                    background-color: $iglu-hut-button-primary-background;
-                    color:            $iglu-hut-button-primary-color;
-                    border-color:     $iglu-hut-button-primary-border-color;
-
-                    :hover{
-                        background-color: $iglu-hut-button-primary-color;
-                        color:            $iglu-hut-button-primary-background;
-                        border-color:     $iglu-hut-button-primary-background;
-                    }
-                }
-
-                &.btn--warning{
-                    background-color: $iglu-hut-button-warning-background;
-                    color:            $iglu-hut-button-warning-color;
-                    border-color:     $iglu-hut-button-warning-border-color;
-
-                    &:hover{
-                        background-color: $iglu-hut-button-warning-color;
-                        color:            $iglu-hut-button-warning-background;
-                        border-color:     $iglu-hut-button-warning-background;
-                    }
-                }
-
-                &.btn--danger{
-                    background-color: $iglu-hut-button-danger-background;
-                    color:            $iglu-hut-button-danger-color;
-                    border-color:     $iglu-hut-button-danger-border-color;
-
-                    &:hover{
-                        background-color: $iglu-hut-button-danger-color;
-                        color:            $iglu-hut-button-danger-background;
-                        border-color:     $iglu-hut-button-danger-background;
-                    }
-                }
-
-                &:hover{
-                    @include IgluOpacity(0.8);
-                }
-
-                &.right{
+                &.right {
                     float: right;
                 }
             }
         }
-
     }
 }

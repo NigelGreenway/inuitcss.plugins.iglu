@@ -98,9 +98,10 @@
 
         </div>
     </main>
-    <div id="iglu" class="iglu"></div>
+    <div id="modal" class="modal"></div>
 
-    <script src="iglu.js"></script>
+    <script src="../iglu.js"></script>
+    <script src="../bower_components/mousetrap/mousetrap.js"></script>
     <script>
         function welcome () {
             Iglu.generate(
@@ -112,7 +113,7 @@
                 {
                     buttons: [
                         {
-                            style:      'primary',
+                            class:      'btn btn--primary',
                             content:    'Ok',
                             dismiss:    true,
                         }
@@ -135,7 +136,7 @@
                 'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
                 '    buttons: [\n' +
                 '        {\n' +
-                '            style: \'default\',\n' +
+                '            class: \'btn btn--default\',\n' +
                 '            content: \'Got it!\',\n' +
                 '            dismiss: true,\n' +
                 '        }\n' +
@@ -147,7 +148,7 @@
                 {
                     buttons: [
                         {
-                            style: 'default',
+                            class: 'btn btn--default',
                             content: 'Got it!',
                             dismiss: true,
                         }
@@ -165,7 +166,7 @@
                 'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
                 '    buttons: [\n' +
                 '        {\n' +
-                '            style: \'default\',\n' +
+                '            class: \'default\',\n' +
                 '            content: \'Dismiss\',\n' +
                 '            dismiss: true,\n' +
                 '        }\n' +
@@ -177,7 +178,7 @@
                 {
                     buttons: [
                         {
-                            style: 'default',
+                            class: 'btn btn--default',
                             content: 'Got it!',
                             dismiss: true,
                         }
@@ -196,12 +197,12 @@
                 'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
                 '    buttons: [\n' +
                 '        {\n' +
-                '            style: \'default\',\n' +
+                '            class: \'default\',\n' +
                 '            content: \'Dismiss\',\n' +
                 '            dismiss: true,\n' +
                 '        },\n' +
                 '        {\n' +
-                '            style: \'primary\',\n' +
+                '            class: \'primary\',\n' +
                 '            content: \'Replace Content\',\n' +
                 '            alignRight: true,\n' +
                 '            attr: [\n' +
@@ -219,12 +220,12 @@
                 {
                     buttons: [
                         {
-                            style:   'default',
+                            class:   'btn btn--default',
                             content: 'Got it!',
                             dismiss: true,
                         },
                         {
-                            style:     'primary',
+                            class:     'btn btn--primary',
                             content:   'Replace Content',
                             alignRight: true,
                             removeOnCallback: true,
@@ -251,17 +252,17 @@
                 'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
                 '    buttons: [\n' +
                 '        {\n' +
-                '            style: \'default\',\n' +
+                '            class: \'default\',\n' +
                 '            content: \'Close\',\n' +
                 '            dismiss: true\n' +
                 '        },\n' +
                 '        {\n' +
-                '            style: \'primary\',\n' +
+                '            class: \'primary\',\n' +
                 '            content: \'OK\',\n' +
                 '            alignRight: true\n' +
                 '        },\n' +
                 '        {\n' +
-                '            style: \'warning\',\n' +
+                '            class: \'warning\',\n' +
                 '            content: \'Another Button\',\n' +
                 '            alignRight: true\n' +
                 '        }\n' +
@@ -273,17 +274,17 @@
                 {
                     buttons: [
                         {
-                            style:   'default',
+                            class:   'btn btn--default',
                             content: 'Close',
                             dismiss: true,
                         },
                         {
-                            style:      'primary',
+                            class:      'btn btn--primary',
                             content:    'Ok',
                             alignRight: true,
                         },
                         {
-                            style:      'warning',
+                            class:      'btn btn--warning',
                             content:    'Another Button',
                             alignRight: true,
                         }
@@ -303,7 +304,7 @@
                 {
                     buttons: [
                         {
-                            style:   'default',
+                            class:   'btn btn--default',
                             content: 'Close',
                             dismiss: true,
                             attr: [
@@ -315,7 +316,7 @@
                         },
                         {
                             type: 'submit',
-                            style:      'submit',
+                            class:      'btn btn--submit',
                             content:    'Submit Form',
                             alignRight: true,
                             removeOnCallback: true,
@@ -343,22 +344,22 @@
                 {
                     buttons: [
                         {
-                            style:   'default',
+                            class:   'btn btn--warning',
                             content: 'Default',
                             dismiss: true,
                         },
                         {
-                            style:   'warning',
+                            class:   'btn btn--warning',
                             content: 'Warning',
                             dismiss: true,
                         },
                         {
-                            style:   'danger',
+                            class:   'btn btn--danger',
                             content: 'Danger',
                             dismiss: true,
                         },
                         {
-                            style:   'primary',
+                            class:   'btn btn--primary',
                             content: 'Primary',
                             dismiss: true,
                         }
