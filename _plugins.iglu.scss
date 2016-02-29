@@ -39,9 +39,10 @@ $iglu-inner-large-width:  90% !default;
 $iglu-inner-large-height: 60% !default;
 
 /*
- * This will stop the background scrolling
+  * This will stop the background scrolling
   * when an modal is active.
- */
+*/
+
 body.modal--active {
     overflow: hidden;
 }
@@ -190,6 +191,12 @@ body.modal--active {
             z-index:    $iglu-zindex + 2;
 
             .btn {
+                margin-left: $iglu-spacing;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
                 &.left {
                     float: left;
                 }

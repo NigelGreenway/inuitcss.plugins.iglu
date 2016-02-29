@@ -106,9 +106,9 @@
 /** Medium Modal **/
 /** Large Modal **/
 /*
- * This will stop the background scrolling
+  * This will stop the background scrolling
   * when an modal is active.
- */
+*/
 body.modal--active {
   overflow: hidden; }
 
@@ -200,10 +200,14 @@ body.modal--active {
       display: inline-block;
       width: 100%;
       z-index: 100002; }
-      .modal .modal__inner .modal__footer .btn.left {
-        float: left; }
-      .modal .modal__inner .modal__footer .btn.right {
-        float: right; }
+      .modal .modal__inner .modal__footer .btn {
+        margin-left: 20px; }
+        .modal .modal__inner .modal__footer .btn:first-child {
+          margin-left: 0; }
+        .modal .modal__inner .modal__footer .btn.left {
+          float: left; }
+        .modal .modal__inner .modal__footer .btn.right {
+          float: right; }
 
 /** Demo CSS **/
 html {
