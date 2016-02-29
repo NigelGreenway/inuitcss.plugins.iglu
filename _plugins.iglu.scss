@@ -129,10 +129,8 @@ body.modal--active {
             line-height:   $iglu-spacing * 2;
 
             // Include a header border if set to 'true'
-            @if $iglu-header-border {
+            @if $iglu-header-border == true {
                 border-bottom: $iglu-border;
-            } @else {
-                border-bottom: 0;
             }
 
             h1 {
