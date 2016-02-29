@@ -78,12 +78,14 @@
             // Todo: Should this be a series of doc.createElement()??
             Iglu.container.innerHTML=''+
             '<div class="iglu__hut" size="' + size + '">' +
-                '<div class="iglu__hut--body">' +
-                    '<span class="close">&#10006;</span>' +
+                '<div class="iglu__hut-header">' +
+                    '<span class="close"></span>' +
                     title +
-                    '<main class="iglu__hut--content">' + content + '</main>' +
                 '</div>' +
-                '<footer class="iglu__hut--footer"></footer>' +
+                '<div class="iglu__hut-body">' +
+                    '<main class="iglu__hut-content">' + content + '</main>' +
+                '</div>' +
+                '<footer class="iglu__hut-footer"></footer>' +
             '</div>';
 
             return Iglu;
@@ -94,7 +96,7 @@
          */
          button: function(button) {
 
-            footer = Iglu.container.getElementsByClassName('iglu__hut--footer')[0];
+            footer = Iglu.container.getElementsByClassName('iglu__hut-footer')[0];
 
             btn = document.createElement('button');
 
@@ -200,7 +202,7 @@
          * @param string content
          */
          replaceContent: function(content) {
-            this.container.getElementsByClassName('iglu__hut--content')[0].innerHTML=content;
+            this.container.getElementsByClassName('iglu__hut-content')[0].innerHTML=content;
         }
     };
 

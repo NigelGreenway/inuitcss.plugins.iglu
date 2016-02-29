@@ -1,83 +1,124 @@
+/** Import Inuit default settings **/
 @import "../bower_components/inuit-defaults/settings.defaults";
 
-$color-blue:    hsla(206, 49.5868%, 52.5490%, 1.0000);
-$color-light:   hsla(0, 5%, 97.0000%, 1.0000);
-$color-dark:    hsla(210, 7.2727%, 21.5686%, 1.0000);
+/** Set demo colours **/
+$color-blue:  hsla(211, 83%, 38%, 1.0000);
+$color-light: hsla(0, 5%, 97.0000%, 1.0000);
+$color-dark:  hsla(210, 7.2727%, 21.5686%, 1.0000);
 
+/** Override Inuit btn defaults **/
 $inuit-btn-background:   $color-light!default;
 $inuit-btn-color:        lighten($color-dark, 15%)!default;
 $inuit-btn-border-color: lighten($color-dark, 15%)!default;
 
+/** Enable Inuit btn sizes **/
 $inuit-enable-btn--small: true !default;
 $inuit-enable-btn--large: true !default;
 $inuit-enable-btn--full:  true !default;
 $inuit-enable-btn--pill:  true !default;
 
+/** Extend Inuit spacing unit **/
 $spacing-unit: $inuit-base-spacing-unit;
 
-// Demo Tool Box:
+
+/** Iglu globals **/
+$iglu-zindex:     100000 !default;
+$iglu-spacing:    20px !default;
+$iglu-font-size:  13px !default;
+$iglu-font-color: hsla(0, 0 ,0, 1.0000) !default;
+
+/** Iglu **/
+$iglu-background-color: hsla(210, 7%, 21%, 0.5) !default;
+$iglu-border:           1px solid lighten(hsla(210, 7.2727%, 21.5686%, 1.0000), 20%) !default;
+
+/** Iglu hut **/
+$iglu-hut-background-color: hsla(0, 5%, 97%, 1.0) !default;
+
+/** Close btn **/
+$close-icon:       "\2716" !default;
+$close-icon-color: hsla(0, 0, 62%, 1.0000) !default;
+
+/** Notification iglu hut **/
+$iglu-hut-notification-width:  350px !default;
+$iglu-hut-notification-height: 50px !default;
+
+/** Small iglu hut **/
+$iglu-hut-small-width:  50% !default;
+$iglu-hut-small-height: 100px !default;
+
+/** Medium iglu hut **/
+$iglu-hut-medium-width:  70% !default;
+$iglu-hut-medium-height: 300px !default;
+
+/** Large iglu hut **/
+$iglu-hut-large-width:  90% !default;
+$iglu-hut-large-height: 60% !default;
+
+
+
+/** Demo Tool Box: **/
 @import "../bower_components/inuit-functions/tools.functions";
 @import "../bower_components/inuit-buttons/objects.buttons";
 @import "../plugins.iglu";
 
-html{
+/** Demo CSS **/
+html {
     padding:          $spacing-unit;
     height:           100%;
     font-family:      'Lato', sans-serif;
     background-color: $color-light;
 }
 
-body{
+body {
     height: 100%;
 }
 
-input:focus{
+input:focus {
     outline:0;
 }
 
-a{
-	color: $color-blue;
-	text-decoration: none;
+a {
+    color: $color-blue;
+    text-decoration: none;
 }
 
-.strikethrough{
-	text-decoration: line-through;
+.strikethrough {
+    text-decoration: line-through;
 }
 
-h1,h2{
-    text-align: center;
-    color:      hsla(210, 7%, 41%, 1.0);
-}
-
-.clearfix{
-    clear:both;
-}
-
-.center{
+h1, h2 {
     text-align: center;
 }
 
-.btn:hover{
+.clearfix {
+    clear: both;
+}
+
+.center {
+    text-align: center;
+}
+
+.btn:hover {
     background-color: #4a8ec2;
-    color: #fff;
+    color:            #fff;
 }
 
-.btn.btn--third{
-    width:  32.32%;
+.btn.btn--third {
+    width: 32.32%;
 }
 
-.wrapper{
+.wrapper {
     position: relative;
     height:   100%;
     width:    100%;
 
     > .layout {
-        padding:  $spacing-unit;
+        padding: $spacing-unit;
     }
 }
 
-input{
-    display:block;
+input {
+    display:        block;
     width:          80%;
     padding-top:    8px;
     padding-right:  8px;
