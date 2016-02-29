@@ -42,7 +42,7 @@ $iglu-hut-large-height: 60% !default;
  * This will stop the background scrolling
   * when an Iglu is active.
  */
-body.active-iglu {
+body.iglu--active {
     overflow: hidden;
 }
 

@@ -152,7 +152,7 @@
          */
          generate: function(title, content, options) {
             this.documentBody          = document.getElementsByTagName('body')[0];
-            this.documentBodyClassName = 'active-iglu';
+            this.documentBodyClassName = 'iglu--active';
 
             if (typeof title !== 'string' && title !== null) {
                 throw new TypeError('The `title` must be a String type.');

@@ -119,7 +119,7 @@
  * This will stop the background scrolling
   * when an Iglu is active.
  */
-body.active-iglu {
+body.iglu--active {
   overflow: hidden; }
 
 .iglu {
