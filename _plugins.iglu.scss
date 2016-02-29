@@ -53,18 +53,6 @@ $iglu-hut-button-danger-background:   hsla(354, 65.6899%, 56.1735%, 1.0000);
 $iglu-hut-button-danger-color:        #fff!default;
 $iglu-hut-button-danger-border-color: darken(hsla(354, 65.6899%, 56.1735%, 1.0000), 20%)!default;
 
-// @TODO:
-// needs its own namespace: _tools.mixin.opacity
-// Issue on namespace proposal: https://github.com/inuitcss/CONTRIBUTING/issues/15
-@mixin IgluOpacity($value){
-  -webkit-opacity: $value;
-  -moz-opacity: $value;
-  opacity: $value;
-  $IEValue: $value*100;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
-  filter: alpha(opacity=$IEValue);
-}
-
 /*
  * This will stop the background scrolling
   * when an Iglu is active.
@@ -149,15 +137,13 @@ body.active-iglu{
             z-index: ($iglu-hut-zindex + 1);
 
             > .close{
-                @include IgluOpacity(0.6);
-
                 position: absolute;
                 top:      0;
                 right:    0;
                 cursor:   pointer;
 
                 &:hover{
-                    @include IgluOpacity(1);
+
                 }
             }
 
@@ -185,7 +171,6 @@ body.active-iglu{
 
             > .btn{
                 @extend .btn;
-                @include IgluOpacity(1);
 
                 margin-right:     0.25rem;
                 background-color: $iglu-hut-button-default-background;
@@ -235,7 +220,7 @@ body.active-iglu{
                 }
 
                 &:hover{
-                    @include IgluOpacity(0.8);
+
                 }
 
                 &.right{
