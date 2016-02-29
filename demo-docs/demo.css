@@ -99,6 +99,7 @@
 /** Iglu globals **/
 /** Modal **/
 /** Modal Inner **/
+/** Modal Header **/
 /** Modal Close Button **/
 /** Notification Modal **/
 /** Small Modal **/
@@ -161,7 +162,7 @@ body.modal--active {
       margin-bottom: 20px;
       z-index: 100002;
       line-height: 40px;
-      border-bottom: 1px solid #626a72; }
+      border-bottom: 0; }
       .modal .modal__inner .modal__header h1 {
         margin-top: 0;
         margin-bottom: 10px;

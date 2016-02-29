@@ -15,6 +15,9 @@ $iglu-border:           1px solid lighten(hsla(210, 7.2727%, 21.5686%, 1.0000), 
 /** Modal Inner **/
 $iglu-inner-background-color: hsla(0, 5%, 97%, 1.0) !default;
 
+/** Modal Header **/
+$iglu-header-border: false !default;
+
 /** Modal Close Button **/
 $close-icon:       "\2716" !default;
 $close-icon-color: hsla(0, 0, 62%, 1.0000) !default;
@@ -123,7 +126,13 @@ body.modal--active {
             margin-bottom: $iglu-spacing;
             z-index:       $iglu-zindex + 2;
             line-height:   $iglu-spacing * 2;
-            border-bottom: $iglu-border;
+
+            // Include a header border if set to 'true'
+            @if $iglu-header-border {
+                border-bottom: $iglu-border;
+            } @else {
+                border-bottom: 0;
+            }
 
             h1 {
                 margin-top:    0;
