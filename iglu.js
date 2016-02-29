@@ -18,7 +18,7 @@
  * in vanilla Javascript, it allows you to not have to worry about any required
  * external dependencies.
  *
- * NOTE: Iglu has an optional dependancy of Mousetrap for otpional key binding.
+ * NOTE: Iglu has an optional dependancy of Mousetrap for optional key binding.
  * This will be installed if you installed IgluJS via Bower.
  * For more info visit: http://craig.is/killing/mice
  *
@@ -69,13 +69,12 @@
     // Factory methods:
     var factory = {
         /*
-         * Create the Iglu and its content via the passed params
+         * Create the Iglu modal and its content via the passed params
          */
          iglu: function(title, content, size, alignRight) {
 
             title = title === null ? '' : '<h1>' + title + '</h1>';
 
-            // Todo: Should this be a series of doc.createElement()??
             Iglu.container.innerHTML=''+
             '<div class="modal__inner" size="' + size + '">' +
                 '<div class="modal__header">' +
