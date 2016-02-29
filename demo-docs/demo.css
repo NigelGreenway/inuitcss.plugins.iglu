@@ -10,13 +10,13 @@
 /** Enable Inuit btn sizes **/
 /** Extend Inuit spacing unit **/
 /** Iglu globals **/
-/** Iglu **/
-/** Iglu hut **/
-/** Close btn **/
-/** Notification iglu hut **/
-/** Small iglu hut **/
-/** Medium iglu hut **/
-/** Large iglu hut **/
+/** Modal **/
+/** Modal Inner **/
+/** Modal Close Button **/
+/** Notification Modal **/
+/** Small Modal **/
+/** Medium Modal **/
+/** Large Modal **/
 /** Demo Tool Box: **/
 /*------------------------------------*\
     #BUTTONS
@@ -103,37 +103,34 @@
 
 /*------------------------------------*\
     #IGLU
-
-    DEPENDANCIES:
-    ^ _objects.buttons.scss
 \*------------------------------------*/
 /** Iglu globals **/
-/** Iglu **/
-/** Iglu hut **/
-/** Close btn **/
-/** Notification iglu hut **/
-/** Small iglu hut **/
-/** Medium iglu hut **/
-/** Large iglu hut **/
+/** Modal **/
+/** Modal Inner **/
+/** Modal Close Button **/
+/** Notification Modal **/
+/** Small Modal **/
+/** Medium Modal **/
+/** Large Modal **/
 /*
  * This will stop the background scrolling
-  * when an Iglu is active.
+  * when an modal is active.
  */
-body.iglu--active {
+body.modal--active {
   overflow: hidden; }
 
-.iglu {
+.modal {
   position: fixed;
+  display: none;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  display: none;
   z-index: 100000;
-  background-color: rgba(50, 54, 57, 0.5);
   overflow-x: hidden;
-  overflow-y: scroll; }
-  .iglu .iglu__hut {
+  overflow-y: scroll;
+  background-color: rgba(50, 54, 57, 0.5); }
+  .modal .modal__inner {
     position: relative;
     display: block;
     margin-top: 40px;
@@ -143,43 +140,43 @@ body.iglu--active {
     padding: 10px 20px 20px 20px;
     font-size: 13px;
     color: black;
-    background-color: #f8f7f7;
     z-index: 100001;
-    border: 1px solid #626a72; }
-    .iglu .iglu__hut[size="notification"] {
+    border: 1px solid #626a72;
+    background-color: #f8f7f7; }
+    .modal .modal__inner[size="notification"] {
       width: 350px;
       min-height: 50px; }
-      .iglu .iglu__hut[size="notification"] .iglu__hut-body .iglu__hut-content {
+      .modal .modal__inner[size="notification"] .modal__body .modal__content {
         min-height: 50px; }
-    .iglu .iglu__hut[size="small"] {
+    .modal .modal__inner[size="small"] {
       width: 50%;
       min-height: 100px; }
-      .iglu .iglu__hut[size="small"] .iglu__hut-body .iglu__hut-content {
+      .modal .modal__inner[size="small"] .modal__body .modal__content {
         min-height: 100px; }
-    .iglu .iglu__hut[size="medium"] {
+    .modal .modal__inner[size="medium"] {
       width: 70%;
       min-height: 300px; }
-      .iglu .iglu__hut[size="medium"] .iglu__hut-body .iglu__hut-content {
+      .modal .modal__inner[size="medium"] .modal__body .modal__content {
         min-height: 300px; }
-    .iglu .iglu__hut[size="large"] {
+    .modal .modal__inner[size="large"] {
       width: 90%;
       min-height: 60%; }
-      .iglu .iglu__hut[size="large"] .iglu__hut-body .iglu__hut-content {
+      .modal .modal__inner[size="large"] .modal__body .modal__content {
         min-height: 60%; }
-    .iglu .iglu__hut .iglu__hut-header {
+    .modal .modal__inner .modal__header {
       position: relative;
       display: block;
       margin-bottom: 20px;
       z-index: 100002;
       line-height: 40px;
       border-bottom: 1px solid #626a72; }
-      .iglu .iglu__hut .iglu__hut-header h1 {
+      .modal .modal__inner .modal__header h1 {
         margin-top: 0;
         margin-bottom: 10px;
         padding-right: 30px;
         font-size: 18px;
         text-align: left; }
-      .iglu .iglu__hut .iglu__hut-header .close {
+      .modal .modal__inner .modal__header .modal__close {
         height: 40px;
         width: 40px;
         position: absolute;
@@ -190,27 +187,29 @@ body.iglu--active {
         font-size: 19.5px;
         line-height: 40px;
         text-align: center; }
-        .iglu .iglu__hut .iglu__hut-header .close:before {
+        .modal .modal__inner .modal__header .modal__close:before {
           content: "✖"; }
-        .iglu .iglu__hut .iglu__hut-header .close:hover:before {
+        .modal .modal__inner .modal__header .modal__close:hover:before {
           color: #5e5e5e; }
-    .iglu .iglu__hut .iglu__hut-body {
+    .modal .modal__inner .modal__body {
       position: relative;
       display: block;
       z-index: 100002;
       padding-bottom: 24px; }
-      .iglu .iglu__hut .iglu__hut-body .iglu__hut-content {
+      .modal .modal__inner .modal__body .modal__content {
         font-size: 13px;
         line-height: 20px;
         color: black; }
-        .iglu .iglu__hut .iglu__hut-body .iglu__hut-content p {
+        .modal .modal__inner .modal__body .modal__content p {
           margin-top: 0; }
-    .iglu .iglu__hut .iglu__hut-footer {
+    .modal .modal__inner .modal__footer {
       position: relative;
       display: inline-block;
       width: 100%;
       z-index: 100002; }
-      .iglu .iglu__hut .iglu__hut-footer .btn.right {
+      .modal .modal__inner .modal__footer .btn.left {
+        float: left; }
+      .modal .modal__inner .modal__footer .btn.right {
         float: right; }
 
 /** Demo CSS **/

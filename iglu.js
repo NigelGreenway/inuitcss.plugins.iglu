@@ -35,7 +35,7 @@
 
         this.Iglu.documentBody.className += ' ' + this.Iglu.documentBodyClassName;
 
-        this.Iglu.container.getElementsByClassName('close')[0].addEventListener('click', function() {
+        this.Iglu.container.getElementsByClassName('modal__close')[0].addEventListener('click', function() {
             destroy();
         });
         this.Iglu.container.addEventListener('click', function(event) {
@@ -77,15 +77,15 @@
 
             // Todo: Should this be a series of doc.createElement()??
             Iglu.container.innerHTML=''+
-            '<div class="iglu__hut" size="' + size + '">' +
-                '<div class="iglu__hut-header">' +
-                    '<span class="close"></span>' +
+            '<div class="modal__inner" size="' + size + '">' +
+                '<div class="modal__header">' +
+                    '<span class="modal__close"></span>' +
                     title +
                 '</div>' +
-                '<div class="iglu__hut-body">' +
-                    '<main class="iglu__hut-content">' + content + '</main>' +
+                '<div class="modal__body">' +
+                    '<main class="modal__content">' + content + '</main>' +
                 '</div>' +
-                '<footer class="iglu__hut-footer"></footer>' +
+                '<div class="modal__footer"></div>' +
             '</div>';
 
             return Iglu;
@@ -96,7 +96,7 @@
          */
          button: function(button) {
 
-            footer = Iglu.container.getElementsByClassName('iglu__hut-footer')[0];
+            footer = Iglu.container.getElementsByClassName('modal__footer')[0];
 
             btn = document.createElement('button');
 
@@ -152,7 +152,7 @@
          */
          generate: function(title, content, options) {
             this.documentBody          = document.getElementsByTagName('body')[0];
-            this.documentBodyClassName = 'iglu--active';
+            this.documentBodyClassName = 'modal--active';
 
             if (typeof title !== 'string' && title !== null) {
                 throw new TypeError('The `title` must be a String type.');
@@ -166,7 +166,7 @@
                 throw new TypeError('`options` must be an Object type.');
             };
 
-            this.container = document.getElementById('iglu');
+            this.container = document.getElementById('modal');
             this.options   = options;
 
             factory.iglu(title, content, options.size, options.alignRight);
@@ -202,7 +202,7 @@
          * @param string content
          */
          replaceContent: function(content) {
-            this.container.getElementsByClassName('iglu__hut-content')[0].innerHTML=content;
+            this.container.getElementsByClassName('modal__content')[0].innerHTML=content;
         }
     };
 

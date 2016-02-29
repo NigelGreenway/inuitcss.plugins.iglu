@@ -20,41 +20,38 @@ $inuit-enable-btn--pill:  true !default;
 /** Extend Inuit spacing unit **/
 $spacing-unit: $inuit-base-spacing-unit;
 
-
 /** Iglu globals **/
 $iglu-zindex:     100000 !default;
 $iglu-spacing:    20px !default;
 $iglu-font-size:  13px !default;
 $iglu-font-color: hsla(0, 0 ,0, 1.0000) !default;
 
-/** Iglu **/
+/** Modal **/
 $iglu-background-color: hsla(210, 7%, 21%, 0.5) !default;
 $iglu-border:           1px solid lighten(hsla(210, 7.2727%, 21.5686%, 1.0000), 20%) !default;
 
-/** Iglu hut **/
-$iglu-hut-background-color: hsla(0, 5%, 97%, 1.0) !default;
+/** Modal Inner **/
+$iglu-inner-background-color: hsla(0, 5%, 97%, 1.0) !default;
 
-/** Close btn **/
+/** Modal Close Button **/
 $close-icon:       "\2716" !default;
 $close-icon-color: hsla(0, 0, 62%, 1.0000) !default;
 
-/** Notification iglu hut **/
-$iglu-hut-notification-width:  350px !default;
-$iglu-hut-notification-height: 50px !default;
+/** Notification Modal **/
+$iglu-inner-notification-width:  350px !default;
+$iglu-inner-notification-height: 50px !default;
 
-/** Small iglu hut **/
-$iglu-hut-small-width:  50% !default;
-$iglu-hut-small-height: 100px !default;
+/** Small Modal **/
+$iglu-inner-small-width:  50% !default;
+$iglu-inner-small-height: 100px !default;
 
-/** Medium iglu hut **/
-$iglu-hut-medium-width:  70% !default;
-$iglu-hut-medium-height: 300px !default;
+/** Medium Modal **/
+$iglu-inner-medium-width:  70% !default;
+$iglu-inner-medium-height: 300px !default;
 
-/** Large iglu hut **/
-$iglu-hut-large-width:  90% !default;
-$iglu-hut-large-height: 60% !default;
-
-
+/** Large Modal **/
+$iglu-inner-large-width:  90% !default;
+$iglu-inner-large-height: 60% !default;
 
 /** Demo Tool Box: **/
 @import "../bower_components/inuit-functions/tools.functions";
