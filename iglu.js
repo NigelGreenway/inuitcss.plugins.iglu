@@ -106,22 +106,7 @@
 
             alignRight = button.alignRight === false || typeof button.alignRight === 'undefined' ? '' : ' right';
 
-            switch (button.style) {
-                case 'default':
-                    btn.setAttribute('class', 'btn' + alignRight);
-                    break;
-                case 'submit':
-                case 'primary':
-                    btn.setAttribute('class', 'btn btn--primary' + alignRight);
-                    break;
-                case 'warning':
-                    btn.setAttribute('class', 'btn btn--warning' + alignRight);
-                    break;
-                case 'danger':
-                case 'cancel':
-                    btn.setAttribute('class', 'btn btn--danger' + alignRight);
-                    break;
-            }
+            btn.setAttribute('class', button.class + ' ' + alignRight);
 
             btn.textContent=button.content;
 
@@ -198,7 +183,7 @@
             var options = {
                 buttons: [
                 {
-                    style:      'primary',
+                    class:      'btn btn--primary',
                     content:    'Ok',
                     dismiss:    true,
                     alignRight: true
