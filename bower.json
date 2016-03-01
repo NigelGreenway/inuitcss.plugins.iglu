@@ -1,9 +1,10 @@
 {
   "name": "inuitcss.plugins.iglu",
-  "version": "0.0.2a",
-  "homepage": "https://github.com/smilinmonki666/inuitcss.plugins.iglu",
+  "version": "1.0.0",
+  "homepage": "https://github.com/nigelgreenway/inuitcss.plugins.iglu",
   "authors": [
-    "Nigel Greenway <nigel_greenway@me.com>"
+    "Nigel Greenway <github@futurepixels.co.uk>",
+    "Gavin Singleton"
   ],
   "description": "A modal plugin to be used within the InuitCSS OOCSS framework http://inuitcss.com",
   "main": "_objects.buttons.scss",
