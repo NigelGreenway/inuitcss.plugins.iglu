@@ -1,0 +1,208 @@
+/*------------------------------------*\
+    #IGLU
+\*------------------------------------*/
+
+/** Iglu globals **/
+$iglu-zindex:     100000 !default;
+$iglu-spacing:    20px !default;
+$iglu-font-size:  13px !default;
+$iglu-font-color: hsla(0, 0 ,0, 1.0000) !default;
+
+/** Modal **/
+$iglu-background-color: hsla(210, 7%, 21%, 0.5) !default;
+$iglu-border:           1px solid lighten(hsla(210, 7.2727%, 21.5686%, 1.0000), 20%) !default;
+
+/** Modal Inner **/
+$iglu-inner-background-color: hsla(0, 5%, 97%, 1.0) !default;
+
+/** Modal Header **/
+$iglu-header-border: false !default;
+
+/** Modal Close Button **/
+$close-icon:       "\2716" !default;
+$close-icon-color: hsla(0, 0, 62%, 1.0000) !default;
+
+/** Notification Modal **/
+$iglu-inner-notification-width:  350px !default;
+$iglu-inner-notification-height: 50px !default;
+
+/** Small Modal **/
+$iglu-inner-small-width:  50% !default;
+$iglu-inner-small-height: 100px !default;
+
+/** Medium Modal **/
+$iglu-inner-medium-width:  70% !default;
+$iglu-inner-medium-height: 300px !default;
+
+/** Large Modal **/
+$iglu-inner-large-width:  90% !default;
+$iglu-inner-large-height: 60% !default;
+
+/*
+  * This will stop the background scrolling
+  * when an modal is active.
+*/
+
+body.modal--active {
+    overflow: hidden;
+}
+
+.modal {
+    position:         fixed;
+    display:          none;
+    width:            100%;
+    height:           100%;
+    top:              0;
+    left:             0;
+    z-index:          $iglu-zindex;
+    overflow-x:       hidden;
+    overflow-y:       scroll;
+    background-color: $iglu-background-color;
+
+    .modal__inner {
+        position:         relative;
+        display:          block;
+        margin-top:       $iglu-spacing * 2;
+        margin-left:      auto;
+        margin-bottom:    0;
+        margin-right:     auto;
+        padding:          ($iglu-spacing / 2) $iglu-spacing $iglu-spacing $iglu-spacing;
+        font-size:        $iglu-font-size;
+        color:            $iglu-font-color;
+        z-index:          $iglu-zindex + 1;
+        border:           $iglu-border;
+        background-color: $iglu-inner-background-color;
+
+        // Notification modal size
+        &[size="notification"] {
+            width:      $iglu-inner-notification-width;
+            min-height: $iglu-inner-notification-height;
+
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-notification-height;
+                }
+            }
+        }
+
+        // Small modal size
+        &[size="small"] {
+            width:      $iglu-inner-small-width;
+            min-height: $iglu-inner-small-height;
+
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-small-height;
+                }
+            }
+        }
+
+        // Medium modal size
+        &[size="medium"] {
+            width:      $iglu-inner-medium-width;
+            min-height: $iglu-inner-medium-height;
+
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-medium-height;
+                }
+            }
+        }
+
+        // Large modal size
+        &[size="large"] {
+            width:      $iglu-inner-large-width;
+            min-height: $iglu-inner-large-height;
+
+            .modal__body {
+                .modal__content {
+                    min-height: $iglu-inner-large-height;
+                }
+            }
+        }
+
+        .modal__header {
+            position:      relative;
+            display:       block;
+            margin-bottom: $iglu-spacing;
+            z-index:       $iglu-zindex + 2;
+            line-height:   $iglu-spacing * 2;
+
+            // Include a header border if set to 'true'
+            @if $iglu-header-border == true {
+                border-bottom: $iglu-border;
+            }
+
+            h1 {
+                margin-top:    0;
+                margin-bottom: $iglu-spacing / 2;
+                padding-right: $iglu-spacing * 1.5; // Pad heading so that it can't be overlapped by the close button
+                font-size:     $iglu-font-size + 5;
+                text-align:    left;
+            }
+
+            .modal__close {
+                height:      $iglu-spacing * 2;
+                width:       $iglu-spacing * 2;
+                position:    absolute;
+                top:         0;
+                right:       -$iglu-spacing / 2; // Move .model__close button to corner
+                cursor:      pointer;
+                color:       $close-icon-color;
+                font-size:   $iglu-font-size * 1.5;
+                line-height: $iglu-spacing * 2;
+                text-align:  center;
+
+                &:before {
+                    content: $close-icon;
+                }
+
+                &:hover {
+                    &:before {
+                        color: darken($close-icon-color, 25%);
+                    }
+                }
+            }
+        }
+
+        .modal__body {
+            position:       relative;
+            display:        block;
+            z-index:        $iglu-zindex + 2;
+            padding-bottom: $spacing-unit;
+
+            .modal__content {
+                font-size:   $iglu-font-size;
+                line-height: $iglu-spacing;
+                color:       $iglu-font-color;
+
+                p {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .modal__footer {
+            position:   relative;
+            display:    inline-block;
+            width:      100%;
+            z-index:    $iglu-zindex + 2;
+
+            .btn {
+                margin-left: $iglu-spacing;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &.left {
+                    float: left;
+                }
+
+                &.right {
+                    float: right;
+                }
+            }
+        }
+    }
+}

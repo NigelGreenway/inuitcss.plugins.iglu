@@ -1,0 +1,95 @@
+/** Import Inuit default settings **/
+@import "../bower_components/inuit-defaults/settings.defaults";
+
+/** Set demo colours **/
+$color-blue:  hsla(211, 83%, 38%, 1.0000);
+$color-light: hsla(0, 5%, 97.0000%, 1.0000);
+$color-dark:  hsla(210, 7.2727%, 21.5686%, 1.0000);
+
+/** Override Inuit btn defaults **/
+$inuit-btn-background:   $color-light!default;
+$inuit-btn-color:        lighten($color-dark, 15%)!default;
+$inuit-btn-border-color: lighten($color-dark, 15%)!default;
+
+/** Enable Inuit btn sizes **/
+$inuit-enable-btn--small: true !default;
+$inuit-enable-btn--large: true !default;
+$inuit-enable-btn--full:  true !default;
+$inuit-enable-btn--pill:  true !default;
+
+/** Extend Inuit spacing unit **/
+$spacing-unit: $inuit-base-spacing-unit;
+
+/** Demo Tool Box: **/
+@import "../bower_components/inuit-functions/tools.functions";
+@import "../bower_components/inuit-buttons/objects.buttons";
+@import "../plugins.iglu";
+
+/** Demo CSS **/
+html {
+    padding:          $spacing-unit;
+    height:           100%;
+    font-family:      'Lato', sans-serif;
+    background-color: $color-light;
+}
+
+body {
+    height: 100%;
+}
+
+input:focus {
+    outline:0;
+}
+
+a {
+    color: $color-blue;
+    text-decoration: none;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.center {
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #4a8ec2;
+    color:            #fff;
+}
+
+.btn.btn--third {
+    width: 32.32%;
+}
+
+.wrapper {
+    position: relative;
+    height:   100%;
+    width:    100%;
+
+    > .layout {
+        padding: $spacing-unit;
+    }
+}
+
+input {
+    display:        block;
+    width:          80%;
+    padding-top:    8px;
+    padding-right:  8px;
+    padding-bottom: 8px;
+    padding-left:   8px;
+    margin-top:     5px;
+    margin-right:   auto;
+    margin-bottom:  5px;
+    margin-left:    auto;
+}
