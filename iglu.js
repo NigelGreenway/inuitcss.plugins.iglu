@@ -163,7 +163,7 @@
 
             if (options === null) {
                 throw new TypeError('`options` must be an Object type.');
-            };
+            }
 
             this.container = document.getElementById('modal');
             this.options   = options;
