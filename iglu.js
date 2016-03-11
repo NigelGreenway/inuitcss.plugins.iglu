@@ -25,14 +25,12 @@
  * @version 0.0.1a
  * @url https://github.com/smilinmonki666/inuitcss.plugins.iglu
  */
- (function(window, document, undefined) {
-
-    /*
-     * Show the container after it has been created
-     */
-     function show() {
+(function(window, document, undefined) {
+   /*
+    * Show the container after it has been created
+    */
+    function show() {
         this.Iglu.container.style.display="block";
-
         this.Iglu.documentBody.className += ' ' + this.Iglu.documentBodyClassName;
 
         this.Iglu.container.getElementsByClassName('modal__close')[0].addEventListener('click', function() {
@@ -50,97 +48,97 @@
             Mousetrap.bind('esc', function(e) {
                 destroy();
             });
-        };
-    };
+        }
+    }
 
     /*
      * Destroy the container content and hide the container
      */
      function destroy() {
-        this.Iglu.documentBody.className=this.Iglu.documentBody.className.replace(' ' + this.Iglu.documentBodyClassName, '');
-        this.Iglu.container.style.display="none";
-        this.Iglu.container.innerHTML="";
+         this.Iglu.documentBody.className=this.Iglu.documentBody.className.replace(' ' + this.Iglu.documentBodyClassName, '');
+         this.Iglu.container.style.display="none";
+         this.Iglu.container.innerHTML="";
 
-        if (typeof Mousetrap !== 'undefined') {
-            Mousetrap.unbind('esc');
-        }
-    };
+         if (typeof Mousetrap !== 'undefined') {
+             Mousetrap.unbind('esc');
+         }
+     }
 
-    // Factory methods:
-    var factory = {
-        /*
-         * Create the Iglu modal and its content via the passed params
-         */
-         iglu: function(title, content, size, alignRight) {
+     // Factory methods:
+     var factory = {
+         /*
+          * Create the Iglu modal and its content via the passed params
+          */
+          iglu: function(title, content, size, alignRight) {
 
-            title = title === null ? '' : '<h1>' + title + '</h1>';
+              title = title === null ? '' : '<h1>' + title + '</h1>';
 
-            Iglu.container.innerHTML=''+
-            '<div class="modal__inner" size="' + size + '">' +
-                '<div class="modal__header">' +
-                    '<span class="modal__close"></span>' +
-                    title +
-                '</div>' +
-                '<div class="modal__body">' +
-                    '<main class="modal__content">' + content + '</main>' +
-                '</div>' +
-                '<div class="modal__footer"></div>' +
-            '</div>';
+              Iglu.container.innerHTML=''+
+              '<div class="modal__inner" size="' + size + '">' +
+                  '<div class="modal__header">' +
+                      '<span class="modal__close"></span>' +
+                      title +
+                  '</div>' +
+                  '<div class="modal__body">' +
+                      '<main class="modal__content">' + content + '</main>' +
+                  '</div>' +
+                  '<div class="modal__footer"></div>' +
+              '</div>';
 
-            return Iglu;
-        },
+              return Iglu;
+          },
 
-        /*
-         * Create a button with the details from the button object
-         */
-         button: function(button) {
+         /*
+          * Create a button with the details from the button object
+          */
+          button: function(button) {
 
-            footer = Iglu.container.getElementsByClassName('modal__footer')[0];
+              footer = Iglu.container.getElementsByClassName('modal__footer')[0];
 
-            btn = document.createElement('button');
+              btn = document.createElement('button');
 
-            if (typeof button.type === 'undefined') {
-                btn.setAttribute('type', 'button');
-            } else {
-                btn.setAttribute('type', button.type);
-            };
+              if (typeof button.type === 'undefined') {
+                  btn.setAttribute('type', 'button');
+              } else {
+                  btn.setAttribute('type', button.type);
+              }
 
-            alignRight = button.alignRight === false || typeof button.alignRight === 'undefined' ? '' : ' right';
+              alignRight = button.alignRight === false || typeof button.alignRight === 'undefined' ? '' : ' right';
 
-            btn.setAttribute('class', button.class + ' ' + alignRight);
+              btn.setAttribute('class', button.class + ' ' + alignRight);
 
-            btn.textContent=button.content;
+              btn.textContent=button.content;
 
-            if (button.attr) {
-                Object.keys(button.attr).forEach(function(key) {
-                    btn.setAttribute(button.attr[key].name, button.attr[key].value);
-                });
-            };
+              if (button.attr) {
+                  Object.keys(button.attr).forEach(function(key) {
+                      btn.setAttribute(button.attr[key].name, button.attr[key].value);
+                  });
+              }
 
-            if (button.removeOnCallback === true) {
-                btn.addEventListener('click', function(event) {
-                    event.target.parentNode.removeChild(event.target);
-                });
-            }
+              if (button.removeOnCallback === true) {
+                  btn.addEventListener('click', function(event) {
+                      event.target.parentNode.removeChild(event.target);
+                  });
+              }
 
-            footer.appendChild(btn);
+              footer.appendChild(btn);
 
-            if (button.dismiss === true) {
-                btn.addEventListener('click', function() {
-                    destroy();
-                });
-            };
-        }
-    }
+              if (button.dismiss === true) {
+                  btn.addEventListener('click', function() {
+                      destroy();
+                  });
+              }
+          }
+     };
 
-    // Iglue Object
-    var Iglu = {
-        options:               null,
-        container:             null,
-        title:                 null,
-        content:               null,
-        documentBody:          null,
-        documentBodyClassName: null,
+     // Iglu Object
+     var Iglu = {
+         options:               null,
+         container:             null,
+         title:                 null,
+         content:               null,
+         documentBody:          null,
+         documentBodyClassName: null,
 
         /*
          * Generator for the Iglu object.
@@ -150,65 +148,67 @@
          * @param object      options
          */
          generate: function(title, content, options) {
-            this.documentBody          = document.getElementsByTagName('body')[0];
-            this.documentBodyClassName = 'modal--active';
+             this.documentBody          = document.getElementsByTagName('body')[0];
+             this.documentBodyClassName = 'modal--active';
 
-            if (typeof title !== 'string' && title !== null) {
-                throw new TypeError('The `title` must be a String type.');
-            }
+             var containerID = options.containerID || 'modal';
 
-            if (typeof content !== 'string') {
-                throw new TypeError('The `content` must be a String type.');
-            }
+             if (typeof title !== 'string' && title !== null) {
+                 throw new TypeError('The `title` must be a String type.');
+             }
 
-            if (options === null) {
-                throw new TypeError('`options` must be an Object type.');
-            };
+             if (typeof content !== 'string') {
+                 throw new TypeError('The `content` must be a String type.');
+             }
 
-            this.container = document.getElementById('modal');
-            this.options   = options;
+             if (options === null) {
+                 throw new TypeError('`options` must be an Object type.');
+             }
 
-            factory.iglu(title, content, options.size, options.alignRight);
+             this.container = document.getElementById(containerID);
+             this.options   = options;
 
-            Object.keys(options.buttons).forEach(function(key){
-                factory.button(options.buttons[key]);
-            });
+             factory.iglu(title, content, options.size, options.alignRight);
 
-            show(this.container);
+             Object.keys(options.buttons).forEach(function(key){
+                 factory.button(options.buttons[key]);
+             });
 
-            return this;
-        },
+             show(this.container);
 
-        notify: function(title, content) {
+             return this;
+         },
 
-            var options = {
-                buttons: [
-                {
-                    class:      'btn btn--primary',
-                    content:    'Ok',
-                    dismiss:    true,
-                    alignRight: true
-                }
-                ],
-                size: 'notification'
-            }
+         notify: function(title, content) {
+             var options = {
+                 containerID: 'modal',
+                 buttons: [
+                     {
+                         class:      'btn btn--primary',
+                         content:    'Ok',
+                         dismiss:    true,
+                         alignRight: true
+                     }
+                 ],
+                 size: 'notification'
+             };
 
-            this.generate(title, '<p>' + content + '</p>', options);
-        },
+             this.generate(title, '<p>' + content + '</p>', options);
+         },
 
         /*
          * Replace the content of the Iglu whilst the Iglu is active
          * @param string content
          */
          replaceContent: function(content) {
-            this.container.getElementsByClassName('modal__content')[0].innerHTML=content;
-        }
+             this.container.getElementsByClassName('modal__content')[0].innerHTML=content;
+         }
     };
 
     // expose Iglu as a global object
     window.Iglu = Iglu;
 
-    // expose iglu as an AMD module
+    // expose Iglu as an AMD module
     if (typeof define === 'function' && define.amd) {
         define(Iglu);
     }
