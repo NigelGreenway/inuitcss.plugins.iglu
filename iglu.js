@@ -48,8 +48,8 @@
             Mousetrap.bind('esc', function(e) {
                 destroy();
             });
-        };
-    };
+        }
+    }
 
     /*
      * Destroy the container content and hide the container
@@ -131,7 +131,7 @@
           }
      };
 
-     // Iglue Object
+     // Iglu Object
      var Iglu = {
          options:               null,
          container:             null,
