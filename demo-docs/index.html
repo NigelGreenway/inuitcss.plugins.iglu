@@ -93,12 +93,18 @@
                     >
                         All Buttons
                     </button>
+                    <button class="btn btn--third"
+                            onclick="containerIDExample();"
+                    >
+                        containerID: example
+                    </button>
                 </p>
             </div>
 
         </div>
     </main>
     <div id="modal" class="modal"></div>
+    <div id="example" class="modal"></div>
 
     <script src="../iglu.js"></script>
     <script src="../bower_components/mousetrap/mousetrap.js"></script>
@@ -368,6 +374,38 @@
                 }
             );
         };
+
+        function containerIDExample () {
+            Iglu.generate(
+                    'Using multiple modals',
+                    '<p>If you wish to include two or more types of modal within a page, you can pass in the <strong>containerID</strong> option.' +
+                    '<p>This is really handy if you want to apply specific rules or CSS styles to types of modal.</p>' +
+                    '<pre>' +
+                    'Iglu.generate(\'Title Of Modal\', \'Modal Content\', {\n' +
+                    '    containerID: \'example\',\n' +
+                    '    buttons: [\n' +
+                    '        {\n' +
+                    '            class: \'btn btn--default\',\n' +
+                    '            content: \'Got it!\',\n' +
+                    '            dismiss: true\n' +
+                    '        }\n' +
+                    '    ],\n' +
+                    '    size: \'medium\'\n' +
+                    '});' +
+                    '</pre>',
+                    {
+                        containerID: 'example',
+                        buttons: [
+                            {
+                                class:   'btn btn--default',
+                                content: 'Default',
+                                dismiss: true
+                            }
+                        ],
+                        size: 'medium'
+                    }
+            );
+        }
 
 
 
