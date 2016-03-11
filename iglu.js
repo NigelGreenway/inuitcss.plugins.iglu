@@ -151,6 +151,8 @@
              this.documentBody          = document.getElementsByTagName('body')[0];
              this.documentBodyClassName = 'modal--active';
 
+             var containerID = options.containerID || 'modal';
+
              if (typeof title !== 'string' && title !== null) {
                  throw new TypeError('The `title` must be a String type.');
              }
@@ -163,7 +165,7 @@
                  throw new TypeError('`options` must be an Object type.');
              }
 
-             this.container = document.getElementById('modal');
+             this.container = document.getElementById(containerID);
              this.options   = options;
 
              factory.iglu(title, content, options.size, options.alignRight);
@@ -178,8 +180,8 @@
          },
 
          notify: function(title, content) {
-
              var options = {
+                 containerID: 'modal',
                  buttons: [
                      {
                          class:      'btn btn--primary',
@@ -206,7 +208,7 @@
     // expose Iglu as a global object
     window.Iglu = Iglu;
 
-    // expose iglu as an AMD module
+    // expose Iglu as an AMD module
     if (typeof define === 'function' && define.amd) {
         define(Iglu);
     }
