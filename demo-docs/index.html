@@ -6,11 +6,8 @@
     <link rel="stylesheet" href="demo.css">
 </head>
 <body>
-
     <main class="wrapper">
-
         <div class="layout">
-
             <div class="layout__item">
                 <h1>Inuit.Iglu</h1>
                 <!-- What is it & what is it for? -->
@@ -30,9 +27,9 @@
                         How does it work?
                     </button>
                 </p>
-            </div><!--
+            </div>
 
-            --><div class="layout__item">
+            <div class="layout__item">
                 <h2>Different Sized Iglu's</h2>
 
                 <p>
@@ -55,9 +52,9 @@
                         size: 'large'
                     </button>
                 </p>
-            </div><!--
+            </div>
 
-            --><div class="layout__item">
+            <div class="layout__item">
                 <h2>Iglu extras</h2>
 
                 <p>
@@ -93,16 +90,17 @@
                     >
                         All Buttons
                     </button>
-                    <button class="btn btn--third"
-                            onclick="containerIDExample();"
+                    <button
+                        class="btn btn--third"
+                        onclick="containerIDExample();"
                     >
                         containerID: example
                     </button>
                 </p>
             </div>
-
         </div>
     </main>
+
     <div id="modal" class="modal"></div>
     <div id="example" class="modal"></div>
 
@@ -121,13 +119,13 @@
                         {
                             class:      'btn btn--primary',
                             content:    'Ok',
-                            dismiss:    true,
+                            dismiss:    true
                         }
                     ],
-                    size: 'small',
+                    size: 'small'
                 }
             );
-        };
+        }
 
         function howItWorks () {
             Iglu.generate(
@@ -156,13 +154,13 @@
                         {
                             class: 'btn btn--default',
                             content: 'Got it!',
-                            dismiss: true,
+                            dismiss: true
                         }
                     ],
                     size: 'small'
                 }
             );
-        };
+        }
 
         function sizeExample (igluSize) {
             Iglu.generate(
@@ -186,13 +184,13 @@
                         {
                             class: 'btn btn--default',
                             content: 'Got it!',
-                            dismiss: true,
+                            dismiss: true
                         }
                     ],
                     size: igluSize
                 }
             );
-        };
+        }
 
         function replaceContent () {
             Iglu.generate(
@@ -228,7 +226,7 @@
                         {
                             class:   'btn btn--default',
                             content: 'Got it!',
-                            dismiss: true,
+                            dismiss: true
                         },
                         {
                             class:     'btn btn--primary',
@@ -246,7 +244,7 @@
                     size: 'medium'
                 }
             );
-        };
+        }
 
         function buttonsAlignRight () {
             Iglu.generate(
@@ -282,23 +280,23 @@
                         {
                             class:   'btn btn--default',
                             content: 'Close',
-                            dismiss: true,
+                            dismiss: true
                         },
                         {
                             class:      'btn btn--primary',
                             content:    'Ok',
-                            alignRight: true,
+                            alignRight: true
                         },
                         {
                             class:      'btn btn--warning',
                             content:    'Another Button',
-                            alignRight: true,
+                            alignRight: true
                         }
                     ],
-                    size: 'medium',
+                    size: 'medium'
                 }
             );
-        };
+        }
 
         function formExample () {
             Iglu.generate(
@@ -316,7 +314,7 @@
                             attr: [
                                 {
                                     name: 'tabindex',
-                                    value: '4',
+                                    value: '4'
                                 }
                             ]
                         },
@@ -338,10 +336,10 @@
                             ]
                         }
                     ],
-                    size: 'small',
+                    size: 'small'
                 }
             );
-        };
+        }
 
         function allButtonsExample () {
             Iglu.generate(
@@ -352,28 +350,28 @@
                         {
                             class:   'btn btn--default',
                             content: 'Default',
-                            dismiss: true,
+                            dismiss: true
                         },
                         {
                             class:   'btn btn--warning',
                             content: 'Warning',
-                            dismiss: true,
+                            dismiss: true
                         },
                         {
                             class:   'btn btn--danger',
                             content: 'Danger',
-                            dismiss: true,
+                            dismiss: true
                         },
                         {
                             class:   'btn btn--primary',
                             content: 'Primary',
-                            dismiss: true,
+                            dismiss: true
                         }
                     ],
-                    size: 'medium',
+                    size: 'medium'
                 }
             );
-        };
+        }
 
         function containerIDExample () {
             Iglu.generate(
@@ -433,14 +431,14 @@
                     if (xmlHttp.status >= 200 && xmlHttp.status <= 299) {
                         if (typeof callback === 'function') {
                             callback(xmlHttp);
-                        };
-                    };
+                        }
+                    }
 
                     if (xmlHttp.status >= 500 && xmlHttp.status <= 599 ) {
                         return xmlHttp;
-                    };
-                };
-            }
+                    }
+                }
+            };
 
             xmlHttp.open('POST', url, false);
             xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -448,7 +446,7 @@
             xmlHttp.send(data);
 
             return xmlHttp;
-        };
+        }
 
         function serialize (form, evt){
             var evt    = evt || window.event;
