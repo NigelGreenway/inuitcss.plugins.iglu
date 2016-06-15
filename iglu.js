@@ -58,6 +58,7 @@
          this.Iglu.documentBody.className=this.Iglu.documentBody.className.replace(' ' + this.Iglu.documentBodyClassName, '');
          this.Iglu.container.style.display="none";
          this.Iglu.container.innerHTML="";
+         document.getElementsByTagName('html')[0].style='';
 
          if (typeof Mousetrap !== 'undefined') {
              Mousetrap.unbind('esc');
@@ -150,6 +151,7 @@
          generate: function(title, content, options) {
              this.documentBody          = document.getElementsByTagName('body')[0];
              this.documentBodyClassName = 'modal--active';
+             document.getElementsByTagName('html')[0].style.overflow='hidden';
 
              var containerID = options.containerID || 'modal';
 
