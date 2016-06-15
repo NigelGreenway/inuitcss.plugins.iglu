@@ -18,12 +18,11 @@
  * in vanilla Javascript, it allows you to not have to worry about any required
  * external dependencies.
  *
- * NOTE: Iglu has an optional dependancy of Mousetrap for optional key binding.
+ * NOTE: Iglu has an optional dependency of Mousetrap for optional key binding.
  * This will be installed if you installed IgluJS via Bower.
  * For more info visit: http://craig.is/killing/mice
  *
- * @version 0.0.1a
- * @url https://github.com/smilinmonki666/inuitcss.plugins.iglu
+ * @url https://github.com/NigelGreenway/inuitcss.plugins.iglu
  */
 (function(window, document, undefined) {
    /*
@@ -58,6 +57,7 @@
          this.Iglu.documentBody.className=this.Iglu.documentBody.className.replace(' ' + this.Iglu.documentBodyClassName, '');
          this.Iglu.container.style.display="none";
          this.Iglu.container.innerHTML="";
+         document.getElementsByTagName('html')[0].style='';
 
          if (typeof Mousetrap !== 'undefined') {
              Mousetrap.unbind('esc');
@@ -150,6 +150,7 @@
          generate: function(title, content, options) {
              this.documentBody          = document.getElementsByTagName('body')[0];
              this.documentBodyClassName = 'modal--active';
+             document.getElementsByTagName('html')[0].style.overflow='hidden';
 
              var containerID = options.containerID || 'modal';
 
