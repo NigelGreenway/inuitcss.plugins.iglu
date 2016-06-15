@@ -22,7 +22,6 @@
  * This will be installed if you installed IgluJS via Bower.
  * For more info visit: http://craig.is/killing/mice
  *
- * @version 0.0.1a
  * @url https://github.com/smilinmonki666/inuitcss.plugins.iglu
  */
 (function(window, document, undefined) {
