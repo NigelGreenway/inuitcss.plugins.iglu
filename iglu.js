@@ -18,7 +18,7 @@
  * in vanilla Javascript, it allows you to not have to worry about any required
  * external dependencies.
  *
- * NOTE: Iglu has an optional dependancy of Mousetrap for optional key binding.
+ * NOTE: Iglu has an optional dependency of Mousetrap for optional key binding.
  * This will be installed if you installed IgluJS via Bower.
  * For more info visit: http://craig.is/killing/mice
  *
