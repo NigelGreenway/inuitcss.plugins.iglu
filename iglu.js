@@ -55,6 +55,7 @@
      */
      function destroy() {
          this.Iglu.documentBody.className=this.Iglu.documentBody.className.replace(' ' + this.Iglu.documentBodyClassName, '');
+         this.Iglu.container.className = this.Iglu.container.className.replace(' is-open', '');
          this.Iglu.container.style.display="none";
          this.Iglu.container.innerHTML="";
          document.getElementsByTagName('html')[0].style='';
@@ -84,6 +85,8 @@
                   '</div>' +
                   '<div class="modal__footer"></div>' +
               '</div>';
+
+              Iglu.container.className = Iglu.container.className + ' is-open';
 
               return Iglu;
           },
